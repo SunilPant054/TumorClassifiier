@@ -1,5 +1,7 @@
 from data.data_loader import *
 from model.network import ClassifierModel
+from model.train_network import TrainNetwork
+
 
 
 class main:
@@ -10,5 +12,9 @@ class main:
     train, test, val = data.load_data()
     
     #compile model
-    model = ClassifierModel()
-    model.network()
+    m1 = ClassifierModel()
+    model = m1.network()
+    
+    #Fit Model 
+    fit = TrainNetwork(train, val)
+    fit.train_model(model)

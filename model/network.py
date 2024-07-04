@@ -2,7 +2,7 @@ from keras import layers, Sequential
 
 
 class ClassifierModel:
-    
+
     def network(self):
         model = Sequential()
 
@@ -37,7 +37,7 @@ class ClassifierModel:
                                 input_shape=(256, 256, 3)
                                 ))
         model.add(layers.MaxPool2D(2, 2))
-        
+
         model.add(layers.Conv2D(512,
                                 kernel_size=(3, 3),
                                 padding='valid',
@@ -45,7 +45,7 @@ class ClassifierModel:
                                 input_shape=(256, 256, 3)
                                 ))
         model.add(layers.MaxPool2D(2, 2))
-        
+
         model.add(layers.Flatten())
         model.add(layers.Dense(4, activation='softmax'))
 
@@ -54,5 +54,4 @@ class ClassifierModel:
             loss='categorical_crossentropy',
             metrics=['accuracy']
         )
-        model.summary()
-
+        return model

@@ -20,3 +20,25 @@ project_name/
 ├── requirements.txt         # Python dependencies
 ├── README.md                # Project documentation
 ├── setup.py 
+
+
+#Training result
+179/179 - 506s - 3s/step - accuracy: 0.5835 - loss: 0.9596 - val_accuracy: 0.7145 - val_loss: 0.8550
+Epoch 2/10
+179/179 - 431s - 2s/step - accuracy: 0.7437 - loss: 0.6490 - val_accuracy: 0.7190 - val_loss: 0.9486
+Epoch 3/10
+179/179 - 429s - 2s/step - accuracy: 0.7901 - loss: 0.5325 - val_accuracy: 0.7175 - val_loss: 0.8692
+Epoch 4/10
+179/179 - 428s - 2s/step - accuracy: 0.8202 - loss: 0.4630 - val_accuracy: 0.8430 - val_loss: 0.5076
+Epoch 5/10
+179/179 - 427s - 2s/step - accuracy: 0.8454 - loss: 0.4007 - val_accuracy: 0.8296 - val_loss: 0.4267
+Epoch 6/10
+179/179 - 428s - 2s/step - accuracy: 0.8727 - loss: 0.3557 - val_accuracy: 0.8729 - val_loss: 0.3139
+Epoch 7/10
+179/179 - 426s - 2s/step - accuracy: 0.8769 - loss: 0.3257 - val_accuracy: 0.8505 - val_loss: 0.3970
+Epoch 8/10
+179/179 - 426s - 2s/step - accuracy: 0.8922 - loss: 0.2876 - val_accuracy: 0.9283 - val_loss: 0.2216
+Epoch 9/10
+179/179 - 427s - 2s/step - accuracy: 0.9095 - loss: 0.2544 - val_accuracy: 0.9178 - val_loss: 0.2453
+Epoch 10/10
+179/179 - 427s - 2s/step - accuracy: 0.9046 - loss: 0.2465 - val_accuracy: 0.9103 - val_loss: 0.2326
