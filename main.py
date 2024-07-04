@@ -1,4 +1,5 @@
 from data.data_loader import *
+from model.network import ClassifierModel
 
 
 class main:
@@ -7,3 +8,7 @@ class main:
     # load data
     data = DataLoader(base_dir)
     train, test, val = data.load_data()
+    
+    #compile model
+    model = ClassifierModel()
+    model.network()
