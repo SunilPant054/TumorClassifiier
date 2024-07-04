@@ -1,0 +1,22 @@
+project_name/
+│
+├── data/
+│   ├── raw/                 # Raw data
+│   ├── processed/           # Processed data
+│
+├── notebooks/               # Jupyter notebooks for exploration and experiments
+│
+├── src/
+│   ├── data/                # Data loading and preprocessing scripts
+│   ├── models/              # Model definitions and training scripts
+│   ├── utils/               # Utility functions and scripts
+│
+├── tests/                   # Unit tests
+│
+├── scripts/                 # Scripts for running the training, evaluation, etc.
+│
+├── logs/                    # Log files
+│
+├── requirements.txt         # Python dependencies
+├── README.md                # Project documentation
+├── setup.py 
