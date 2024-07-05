@@ -15,3 +15,4 @@ class TrainNetwork:
             verbose = 2
         )
         model.summary()
+        return model
