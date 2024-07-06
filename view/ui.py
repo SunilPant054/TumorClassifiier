@@ -3,23 +3,47 @@ import numpy as np
 import cv2
 
 
+import gradio as gr
+
 class Frontend:
     def __init__(self):
-        pass
+        self.model = None
 
-    def ui(self, predict_func):
-        def classify_image(image):
-            # Convert image from RGB to BGR for OpenCV
-            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-            # Call the predict_model method with the uploaded image
-            # Pass the model and the uploaded image
-            result = predict_func(self.model, image)
-            return result
+    def set_model(self, model):
+        self.model = model
 
-        gr.Interface(
-            fn=classify_image,
-            inputs=gr.Image(),  # Updated to use `gr.Image()` without `shape`
-            outputs=gr.Label(),  # Updated to use `gr.Label()` for output
-            title="Image Classification",
-            description="Upload an image to classify."
-        ).launch(True)
+    def preprocess_image(self, image):
+        """
+        Resize and normalize the uploaded image.
+        """
+        # We are using the same preprocess logic as in the Predict class
+        image = cv2.resize(image, (256, 256))
+        image = image / 255.0
+        image = np.expand_dims(image, axis=0)
+        return image
+
+    def predict_image(self, image):
+        """
+        Preprocess the image and make a prediction.
+        """
+        if self.model is None:
+            raise ValueError("Model is not set")
+        preprocessed_image = self.preprocess_image(image)
+        prediction = self.model.predict(preprocessed_image)
+        class_labels = ['giloma', 'meningioma', 'notumor', 'pituitary']
+        pred_class = class_labels[np.argmax(prediction)]
+        confidence = np.max(prediction) * 100
+        return f"Prediction: {pred_class} ({confidence:.2f}%)"
+
+    def ui(self):
+        """
+        Create the Gradio UI for the image classification.
+        """
+        iface = gr.Interface(
+            fn=self.predict_image,
+            inputs=gr.Image(type="numpy", label="Upload Image"),
+            outputs=gr.Textbox(label="Prediction")
+        )
+        iface.launch()
+
+    
